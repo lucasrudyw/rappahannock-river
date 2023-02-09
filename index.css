@@ -27,16 +27,21 @@ h1 {
   padding-bottom: 1rem;
 }
 
+p {
+  margin-bottom: 1em;
+  max-width: 800px;
+}
+
+.container p,
+.container blockquote {
+  color: white;
+}
+
 .container p {
   text-align: center;
   font-size: 0.8em;
   margin-bottom: 1.5em;
   padding-bottom: 0.5em;
-  border-bottom: 1px dotted lightgray;
-}
-
-p {
-  margin-bottom: 1em;
 }
 
 blockquote {
@@ -46,17 +51,38 @@ blockquote {
   text-align: center;
 }
 
+/* hr {
+  border: 1px solid #c4c193;
+  margin-top: 1em;
+} */
+
 /* layout */
 header,
-footer,
 .featured-item-container {
   background-color: #3C6255;
   color: white;
 }
 
+.video-container {
+  position: relative;
+}
+
+.video-container-blockquote {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  align-items: center;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 100px;
+  margin: auto;
+}
+
 img, video {
   width: 100%;
-  max-width: 800px;
+  max-width: 1000px;
   border-radius: 2px;
 }
 
@@ -64,11 +90,17 @@ img:not(.main-image) {
   object-fit: cover;
   max-height: 235px;
   max-width: 500px;
+  margin: auto auto 1em 
 }
 
 .main-image {
   display: block;
   margin: 0.7em auto;
+}
+
+video {
+  filter: brightness(62.5%);
+
 }
 
 nav, .nav-bars {
@@ -106,10 +138,15 @@ li a {
   display: flex;
   flex-wrap: wrap;
   gap: 1em;
+  padding-bottom: 2em;
 }
 
 .featured-item {
   flex: 1 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
 }
 
 
@@ -146,10 +183,6 @@ li a {
 
 .btn-dark:hover {
   background-color: #577863;
-}
-
-.btn-container {
-  background-color: #29433a;
 }
 
 footer {
@@ -218,8 +251,38 @@ i:not(.nav-bars):hover {
     width: auto;
   }
 
+  .container-btns {
+    text-align: center;
+  }
+
   footer {
     flex-direction: row;
     align-items: center;
+  }
+
+  hr {
+    margin: 0;
+    display: none;
+  }
+
+  .featured-item img {
+    margin-top: 0px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .video-container-blockquote {
+    font-size: 1.5rem;
+  }
+
+  p, a {
+    font-size: 1.2rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .featured-item:last-of-type img {
+    max-width: none;
+    max-height: 400px;
   }
 }
